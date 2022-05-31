@@ -1,0 +1,838 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.12,
+* Autoprefixer: v10.4.4
+* Browsers: last 4 version
+*/
+
+/* 스크롤바 꾸미기 시작 */
+
+::-webkit-scrollbar-thumb { background-color: rgba(45, 45, 45, 0.3); border-radius: 15px;
+}
+
+::-webkit-scrollbar { width: 5px;  height: 7px;
+}
+
+/* 스크롤바 꾸미기 끝 */
+
+/* 노멀라이즈 */
+:root { overflow-y: overlay;
+}
+* { -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+/* 폰트 */
+@import url('http://fonts.cdnfonts.com/css/agright');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+html,body{ height:100vh; margin:0; font-size:18px; background-color:#f7f7f7; color:#212121; cursor:none; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; -webkit-transition: .3s; -o-transition: .3s; transition: .3s;
+}
+html>body{ font-family: 'agright', sans-serif;
+}
+/* section,div,ul,li,a,span,p,h1,h2,h3,h4{ margin:0px; padding:0px; word-break:keep-all; text-decoration:none; color:inherit; transition: .3s;
+}
+ul,li,a{
+  list-style:none;
+} */
+/* 노멀라이즈 끝 */
+
+
+/* 라이브러리 */
+.con { max-width:1920px; height:100%; margin:0 auto; scroll-snap-align: center;
+}
+.wrap { max-width: 1440px; height:100%; margin: 0 auto;
+}
+.sans{ font-family: 'Noto Sans KR', sans-serif; letter-spacing:-1px;
+}
+.serif{ font-family: 'Noto Serif', serif; font-weight:400; letter-spacing:-1px;
+}
+.wh { color: #f7f7f7;
+}
+/*라이브러리 끝*/
+
+/* 커스텀 시작 */
+
+
+/* 로딩중 */
+.loading{ position:relative; top:0; left:0; z-index:99; max-width:1920px; height:100%; margin:0 auto; background-color:#f7f7f7;
+}
+.loader { position: fixed; top: 50%; left: 50%; width: 40px; height: 40px; border: 3px solid #F3514533; border-top: 3px solid #F35145; border-radius: 50%; -webkit-animation: load 1.5s linear infinite; animation: load 1.5s linear infinite; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); z-index:100;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* 로딩중 끝 */
+
+/* 커서 */
+.cursor { position:fixed; z-index:1000; width:25px; height:25px; border-radius:50%; background:-o-radial-gradient(#F35145,#FAEDA6); background:radial-gradient(#F35145,#FAEDA6); pointer-events:none; -webkit-transform:translateX(-50%) translateY(-50%); -ms-transform:translateX(-50%) translateY(-50%); transform:translateX(-50%) translateY(-50%); -webkit-transition:width .1s, height .1s; -o-transition:width .1s, height .1s; transition:width .1s, height .1s; opacity:.7;
+}
+.need-to-cursor-big .cursor { width:100px; height:100px; opacity:.5;  cursor:pointer;
+}
+/*커서 끝*/
+
+
+/* 헤더 */
+#header { display: -webkit-box; display: -ms-flexbox; display: flex; position: fixed; z-index: 999; width: 100%; height: 70px; top: 50px; color:#212121;
+}
+/* .logo { display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+} */
+#header .menu-bar { display: -webkit-box; display: -ms-flexbox; display: flex; width:100%; height: 100%;
+}
+#header .menu-bar > div.flex-grow { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1;
+}
+#header .menu-bar > .menu { display: -webkit-box; display: -ms-flexbox; display: flex; margin-right: 15px;
+}
+#header .menu-bar > .menu a { display: -webkit-box; display: -ms-flexbox; display: flex; height: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
+}
+#header .menu-bar > .menu li a > span { font-size: 1rem; letter-spacing: 1.2px;
+}
+#header .menu > li { width: calc(100% / 5);
+}
+#header .menu > li:hover a{ text-decoration:underline; -webkit-text-decoration-color:#F35145; text-decoration-color:#F35145; text-underline-offset:7px; text-decoration-thickness:2px;
+}
+#header .menu > li > a { padding: 0 40px;
+}
+
+/* 헤더 끝 */
+
+.all { width: 100%; height: 100vh; padding: 0; margin: 0; overflow-x:hidden; overflow-y: scroll; -ms-scroll-snap-type: y mandatory; scroll-snap-type: y mandatory; scroll-behavior: smooth;
+}
+
+/* main (z-index:1~50) */
+#main{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:reverse; -ms-flex-direction:column-reverse; flex-direction:column-reverse; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/bg.png); background-repeat: no-repeat; background-position: center; background-size: cover;
+}
+#main .title{ margin-left:50px; margin-bottom:50px; font-size:10rem; line-height:80px; 
+}
+#main .info{ display:-webkit-box; display:-ms-flexbox; display:flex; margin-left:50px; margin-bottom:150px; font-size:1.6rem;
+}
+#main .info span.sans{ font-size:1rem;
+}
+
+/* about (z-index:50~100) */
+#about{ position:relative;
+}
+#about .wrap{ display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center;
+}
+#about .about__title {
+ position:absolute; left:50px; bottom:50px; margin:0; font-size:6.7rem; line-height:80px; 
+}
+#about .wrap .about__box { display: -webkit-box; display: -ms-flexbox; display: flex; width:1200px; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;
+}
+#about .about__box .about__img { display: -webkit-box; display: -ms-flexbox; display: flex; width: 500px; height: 643px; z-index:50; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__brand/docs/img/about__img.png); 
+}
+#about .about__text-box dl{ display:-webkit-box; display:-ms-flexbox; display:flex; margin-bottom:25px;
+}
+#about .about__text-box dt{font-size:1.3rem;
+}
+#about .about__text-box dd{margin-left:50px; padding-top:3px; font-size:1rem; line-height:25px;
+}
+#about .about__text-box dl:nth-child(1) dd{ margin-left:93px;
+}
+#about .about__text-box dl:nth-child(2) dd{ margin-left:90px;
+}
+#about .about__text-box dl:nth-child(3) dd{ margin-left:77px;
+}
+#about .about__text-box dl:nth-child(4) dd:nth-child(2){ margin-top:5px;
+}
+#about .about__text-box strong.aboutme{ font-size:1.3rem; line-height:32px;
+}
+#about .about__text-box p.aboutme-detail{ margin-top:15px; font-size:1rem; line-height:25px;
+}
+
+/* possibility 시작 (z-index:100~150) */
+#possibility{ position:relative;
+}
+#possibility .possibility__title{ position:absolute; margin:0; font-size:6.7rem; line-height:80px; left:50px; bottom:50px;
+}
+#possibility .wrap{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center;
+}
+#possibility .wrap .possibility__box{ display:-webkit-box; display:-ms-flexbox; display:flex; padding:0 90px; -webkit-box-orient:horizontal; -webkit-box-direction:normal; -ms-flex-direction:row; flex-direction:row; -webkit-box-align:center; -ms-flex-align:center; align-items:center; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between;
+}
+#possibility .possibility__box .possibility__text{ display:-webkit-box; display:-ms-flexbox; display:flex; padding:0; line-height:25px; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column;  
+}
+#possibility .possibility__text section:not(section:nth-child(3)){ margin-bottom:50px;  
+}
+#possibility .possibility__text section dt{ font-weight:600; font-size:1.3rem;  
+}
+#possibility .possibility__text section dd{ margin-top:30px; font-size:1rem; line-height:26px;  
+}
+#possibility .possibility__box .possibility__img{ display:-webkit-box; display:-ms-flexbox; display:flex; position:relative; width:620px; margin:0;  
+} 
+#possibility .possibility__img .possibility__img-bg{ display:-webkit-box; display:-ms-flexbox; display:flex; width:100%;
+}
+#possibility .possibility__box .possibility__img-1{ display:-webkit-box; display:-ms-flexbox; display:flex; position:absolute; top: 61px; left: 89.5px;
+}
+
+/* skills 시작 (z-index:150~200) */
+#skills{ position:relative;
+}
+#skills .skills__title{ position:absolute; left:50px; bottom:50px; margin:0; font-size:6.7rem; line-height:80px; 
+}
+#skills .wrap{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center; 
+}
+#skills .wrap .skills__box-1{ display:-webkit-box; display:-ms-flexbox; display:flex; 
+}
+#skills .skills__box-1 .skills__box-1-text{ margin-left:10px;
+}
+#skills .skills__box-1-text p{ margin-bottom:30px; padding:10px 0; font-size:1rem; 
+}
+#skills .skills__box-1-text p:nth-child(5){ margin:0;
+}
+#skills .wrap .skills__box-2{ display:-webkit-box; display:-ms-flexbox; display:flex; position:relative; margin-left:30px; 
+}
+#skills .skills__box-2 .skills__box-2-graph{ position:absolute; top:0; left:0; 
+}
+#skills .skills__box-2 .skills__box-2-graph img{ margin-bottom:50px; 
+}
+
+
+
+/* works (z-index:200~250) */
+#work{ position:relative;
+}
+/* 타이틀 텍스트 */
+#work .work__title{ position:absolute; left:50px; bottom:50px; z-index:201; font-size:6.7rem; line-height:80px; 
+}
+/* 스와이퍼 */
+#work .swiper-container{ position:relative; width:100%; height:100%;
+}
+#work .swiper-container .swiper-wrapper{ width:100%; height:100%;
+}
+#work .swiper-wrapper .swiper-slide{ display:-webkit-box; display:-ms-flexbox; display:flex; width:100%; height:100%; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center; overflow:hidden;
+}
+/* 백그라운드 이미지 */
+#work .swiper-wrapper .slide-1{ background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-bg-1.png); background-size:cover; background-repeat:no-repeat;
+}
+#work .swiper-wrapper .slide-2{ background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-bg-2.png); background-size:cover; background-repeat:no-repeat;
+}
+#work .swiper-wrapper .slide-3{ background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-bg-3.png); background-size:cover; background-repeat:no-repeat;
+}
+#work .swiper-wrapper .slide-4{ background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-bg-4.png); background-size:cover; background-repeat:no-repeat;
+}
+#work .swiper-wrapper .slide-5{ background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-bg-5.png); background-size:cover; background-repeat:no-repeat;
+}
+/* 백그라운드 이미지 끝 */ 
+
+/* 내용 박스 */
+#work .swiper-slide .work__box{ display:-webkit-box; display:-ms-flexbox; display:flex; height:600px; -webkit-box-orient:horizontal; -webkit-box-direction:normal; -ms-flex-direction:row; flex-direction:row; -webkit-box-align:center; -ms-flex-align:center; align-items:center; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; width:1210px; 
+}
+/* 박스 왼쪽 텍스트 */
+#work .swiper-slide .work__text{ width:512px; padding-bottom:35px; -ms-flex-item-align:end; align-self:flex-end; margin-left:-130px; margin-right:30px; 
+}
+/* 제목 */
+#work .work__text section:nth-child(1){ margin-bottom:50px;
+}
+#work .work__text section:nth-child(1) .text-b{ font-size:1.6rem;
+}
+/* 내용 */
+#work .work__text section:nth-child(1) dl{ text-align:end;
+}
+#work .work__text section:nth-child(1) .text-s{ margin-top:30px; font-size:1rem; line-height:30px;
+}
+#work .work__text section:nth-child(1) span{ font-size:0.9rem; line-height:45px; text-align:end;
+}
+/* 스킬 그래프 */
+#work .swiper-slide .work__text section.skill{ display:-webkit-box; display:-ms-flexbox; display:flex; margin-top:-55px; -webkit-box-pack:end; -ms-flex-pack:end; justify-content:flex-end;
+}
+/* 웹사이트 보기 버튼 */
+#work .swiper-slide .work__text .button{ display:-webkit-box; display:-ms-flexbox; display:flex; margin-top:15px;
+}
+#work .swiper-slide .work__text .button div{ margin-left:auto; width:180px; height:45px; background-color:#212121;
+}
+#work .swiper-slide .work__text .button a{ display:-webkit-box; display:-ms-flexbox; display:flex; width:100%; height:100%; font-size:1rem; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center;
+}
+#work .swiper-slide .work-__text .button a>span{
+color:#212121;
+}
+/* 웹사이트 보기 버튼 (2개) */
+#work div.swiper-slide:not(.slide-1, .slide-4, .slide-5) .work__text .button div:nth-child(1){ margin-left:136px; 
+}
+/* 박스 왼쪽 텍스트 끝 */
+
+/* 박스 오른쪽 이미지 */
+#work .swiper-slide .work__img{ display:-webkit-box; display:-ms-flexbox; display:flex; position:relative;
+}
+/* 박스 오른쪽 이미지 애니메이션 */
+
+/* 애니메이션 실행 */
+@-webkit-keyframes position{
+0%{ background-position: 0 0;}
+100%{ background-position: 0 100%;}
+}
+@keyframes position{
+0%{ background-position: 0 0;}
+100%{ background-position: 0 100%;}
+}
+
+#work .slide-1 .work__img .page{position:absolute; top:18.2px;left:21px; width:562px; height:315.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-1.png); -webkit-animation: position 14s infinite ease-in; animation: position 14s infinite ease-in; -webkit-animation-delay:.5s; animation-delay:.5s; -webkit-animation-play-state:paused; animation-play-state:paused;
+}
+#work .slide-3 .work__img .page{position:absolute; top:18.2px;left:21px; width:562px; height:315.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-2.png); -webkit-animation: position 14s infinite ease-in; animation: position 14s infinite ease-in; -webkit-animation-delay:.5s; animation-delay:.5s; -webkit-animation-play-state:paused; animation-play-state:paused;
+}
+#work .slide-4 .work__img .page{position:absolute; top:18.2px;left:21px; width:562px; height:315.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-3.png); -webkit-animation: position 14s infinite ease-in; animation: position 14s infinite ease-in; -webkit-animation-delay:.5s; animation-delay:.5s; -webkit-animation-play-state:paused; animation-play-state:paused;
+}
+#work .slide-5 .work__img .page{position:absolute; top:18.2px;left:20.5px; width:562px; height:315.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-4.png); -webkit-animation: position 14s infinite ease-in; animation: position 14s infinite ease-in; -webkit-animation-delay:.5s; animation-delay:.5s; -webkit-animation-play-state:paused; animation-play-state:paused;
+}
+#work .slide-2 .work__img .page{position:absolute; top:25px;left:40.5px; width:243.5px; height:518.5px; border-radius:25px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-mobile-1.png); -webkit-animation: position 14s infinite ease-in; animation: position 14s infinite ease-in; -webkit-animation-delay:.5s; animation-delay:.5s; -webkit-animation-play-state:paused; animation-play-state:paused;
+}
+/* 각 슬라이드에 호버시 애니메이션 작동 */
+#work .slide-1:hover .work__img .page{ -webkit-animation-play-state:running; animation-play-state:running;}
+#work .slide-2:hover .work__img .page{ -webkit-animation-play-state:running; animation-play-state:running;}
+#work .slide-3:hover .work__img .page{ -webkit-animation-play-state:running; animation-play-state:running;}
+#work .slide-4:hover .work__img .page{ -webkit-animation-play-state:running; animation-play-state:running;}
+#work .slide-5:hover .work__img .page{ -webkit-animation-play-state:running; animation-play-state:running;}
+/* 박스 오른쪽 이미지 끝 */
+
+/* 슬라이더 버튼 */
+#work .swiper-container .swiper-button-next{ position:absolute; right:50px;
+}
+#work .swiper-container .swiper-button-prev { position:absolute; left:50px;
+}
+#work .swiper-container .swiper-button-next::after,
+#work .swiper-container .swiper-button-prev::after { display: none;
+}
+/* 슬라이더 버튼 끝 */
+
+
+/* experience 시작 z-index:(250~300) */
+#experience{ position:relative;
+}
+#experience .exp__title{ position:absolute; left:50px; bottom:50px; margin:0; font-size:6.7rem; line-height:80px;
+}
+#experience .wrap{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; -webkit-box-align:center; -ms-flex-align:center; align-items:center;
+}
+#experience .wrap .border{ width:1200px; height:700px; border:1px solid #212121; 
+}
+#experience .wrap .swiper-box-1{ width:100%; height:100%;
+}
+#experience .swiper-box-1 .swiper { position:relative; width:100%; height:100%; --swiper-pagination-color: #F35145;
+}
+#experience .swiper .swiper-wrapper{ width:100%; height:100%;
+}
+#experience .swiper-wrapper .swiper-slide{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column; -webkit-box-align:center; -ms-flex-align:center; align-items:center; overflow:hidden;
+}
+#experience .swiper-slide .slide__name{ margin-top:5px; font-size:1.8rem; 
+}
+#experience .swiper-slide .img{ display:-webkit-box; display:-ms-flexbox; display:flex; padding-top:95px; width:100%; -ms-flex-pack:distribute; justify-content:space-around;
+}
+#experience .swiper-slide .img img{ display:-webkit-box; display:-ms-flexbox; display:flex;
+}
+#experience .swiper .swiper-button-prev,
+#experience .swiper .swiper-button-next{ position:absolute; top:auto; bottom:20px; color:#212121; --swiper-navigation-size: 30px;
+}
+#experience .swiper .swiper-button-prev{ left:calc(50% - 100px);
+}
+#experience .swiper .swiper-button-next{ left:auto; right:calc(50% - 100px);
+}
+#experience .swiper .swiper-button-next,
+#experience .swiper .swiper-button-prev { background-image: none;
+}
+#experience .swiper .swiper-pagination{ position:absolute; top:auto; bottom:0; left:50%; -webkit-transform:translatex(-50%); -ms-transform:translatex(-50%); transform:translatex(-50%); width:200px; height:4px; background-color:rgba(0,0,0,.15);
+}
+
+/* contact */
+#contact{ display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-orient:vertical; -webkit-box-direction:reverse; -ms-flex-direction:column-reverse; flex-direction:column-reverse; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/bg.png); background-repeat: no-repeat; background-position: center; background-size: cover;
+}
+#contact .title{ margin-left:50px; margin-bottom:50px; font-size:6.7rem; line-height:80px;
+}
+#contact .info{ display:-webkit-box; display:-ms-flexbox; display:flex; margin-left:50px; margin-bottom:100px; width:500px;
+}
+#contact .info div:nth-child(2){ margin-left:10px; padding-top:10px;
+}
+#contact .info ul{ display:-webkit-box; display:-ms-flexbox; display:flex; padding-bottom:25px;
+}
+#contact .info ul:nth-child(3){ padding-bottom:0;
+}
+#contact .info ul .serif{ padding-right:50px; font-size:1.6rem;
+}
+#contact .info ul .sans{ padding-top:5px;font-size:1.1rem;  
+}
+#contact .info ul:nth-child(1) .sans{ padding-top:10px;
+}
+
+/* pc 태블릿 가로 (해상도 1024px ~ 1440px) */
+@media (max-width: 1440px) and (min-width: 1024px) {
+html,body{ font-size:16px; transition: .3s;}
+.con { max-width:1440px;
+}
+.wrap{ max-width: 1024px;
+}
+/* main */
+#main .title{ line-height:100px;
+}
+#main .info{ margin-bottom:130px;
+}
+/* about */
+#about .about__title { line-height:60px;
+}
+#about .wrap .about__box { width:1000px;
+}
+/* possibility */
+#possibility .possibility__title{ line-height:60px;
+}
+#possibility .wrap .possibility__box{ display:flex; padding:0; width:100%; align-items:center; justify-content:space-between;
+}
+#possibility .possibility__box .possibility__text{ display:flex; padding:0; width:500px; line-height:25px; flex-direction:column;
+}
+#possibility .possibility__text section:not(section:nth-child(3)){ margin-bottom:30px;
+}
+#possibility .possibility__text section dt{ white-space:nowrap;
+}
+#possibility .possibility__text section dd{ margin-top:25px; line-height:24px;
+}
+#possibility .possibility__box .possibility__img{ display:flex; position:relative; margin:0 width:500px;
+}  
+#possibility .possibility__box .possibility__img-1{ top: 50px; left: 74px; width:335px;
+}
+  
+/* skills */
+#skills{ position:relative;
+}
+#skills .skills__title{ line-height:60px;
+}
+#skills .wrap{ flex-direction:column; position:relative;
+}
+#skills .wrap .skills__box-1{ display:flex; height:360px; 
+}
+#skills .skills__box-1-text p{ margin-bottom:42px; padding:5px 0; font-size:1.125rem;
+}
+#skills .wrap .skills__box-2{ position:absolute; top:calc(50% + 23px); left:calc(50% - 55px); transform:translate(-50%, -50%); width:520px; height:335px;
+}
+#skills .skills__box-2 > img{ max-width:623px;
+}
+#skills .skills__box-2 .skills__box-2-graph{ position:absolute; top:1.5px; width:623px;
+}
+#skills .skills__box-2 .skills__box-2-graph img{ margin-bottom:58.3px; width:100%; height:20px;
+}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(1){ width:90%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(2){ width:65%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(3){ width:85%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(4){ width:80%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(5){ width:95%;}
+/* work */
+/* 타이틀 텍스트 */
+#work .work__title{ line-height:60px;
+}
+/* 내용 박스 */
+#work .swiper-slide .work__box{ width:1000px;
+}
+/* 박스 왼쪽 텍스트 */
+#work .swiper-slide .work__text{ margin-right:20px; white-space:nowrap;
+}
+/* 웹사이트 보기 버튼 (2개) */
+#work div.swiper-slide:not(.slide-1, .slide-4, .slide-5) .work__text .button div:nth-child(1){ margin-right:10px;
+}
+/* 박스 왼쪽 텍스트 끝 */
+/* 슬라이더 버튼 */
+#work .swiper-container .swiper-button-next{ right:0;
+}
+#work .swiper-container .swiper-button-prev { left:0;
+}
+  
+/* experience */
+#experience .exp__title{ line-height:60px;
+}
+#experience .wrap .border{ width:1000px;
+}
+
+}
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media (max-width:1023px) and (min-width:768px) {
+html,body{ font-size:16px; transition: .3s;
+}
+.con { max-width:1023x;
+}
+.wrap{ max-width: 768px;
+}
+#header{ top:0;
+}
+#header .menu-bar{ justify-content:center;
+}
+#header .menu-bar .flex-grow{ flex-grow:0;
+}
+/* main */
+#main .title{ font-size:9rem; line-height:100px;
+}
+#main .info{ margin-bottom:100px;
+}
+/* about */
+#about .about__title { line-height:60px;
+}
+#about .wrap .about__box { width:500px; justify-content:center;
+}
+#about{ position:relative;
+}
+#about .wrap{ display: flex; flex-direction: column; justify-content:center; align-items:center;
+}
+#about .about__title { position:absolute; left:50px; bottom:50px; margin:0; font-size:6.7rem; line-height:80px; 
+}
+#about .about__box .about__img { display: none;
+}
+
+/* possibility */
+#possibility .possibility__title{ line-height:60px;
+}
+
+#possibility .wrap .possibility__box{ display:flex; width:100%; padding:0; align-items:center; justify-content:center;
+}
+#possibility .possibility__box .possibility__text{ display:flex; width:500px; padding:0; line-height:25px; flex-direction:column;
+}
+#possibility .possibility__text section:not(section:nth-child(3)){ margin-bottom:30px;
+}
+#possibility .possibility__text section dt{ white-space:nowrap;
+}
+#possibility .possibility__text section dd{ margin-top:25px; line-height:24px;
+}
+#possibility .possibility__box .possibility__img{ display:none;
+}  
+#possibility .possibility__box .possibility__img-1{ top: 50px; left: 74px; width:335px;
+}
+  
+/* skills */
+#skills{ position:relative;
+}
+#skills .skills__title{ line-height:60px;
+}
+#skills .wrap{ position:relative; flex-direction:column;
+}
+#skills .wrap .skills__box-1{ display:flex; height:360px; 
+}
+#skills .skills__box-1-text p{ margin-bottom:42px; padding:5px 0; font-size:1.125rem;
+}
+#skills .wrap .skills__box-2{ position:absolute; top:calc(50% + 23px); left:calc(50% - 55px); transform:translate(-50%, -50%); width:520px; height:335px;
+}
+#skills .skills__box-2 > img{ max-width:623px;
+}
+#skills .skills__box-2 .skills__box-2-graph{ position:absolute; top:1.5px; width:623px;
+}
+#skills .skills__box-2 .skills__box-2-graph img{ margin-bottom:58.3px; width:100%; height:20px;
+}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(1){ width:90%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(2){ width:65%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(3){ width:85%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(4){ width:80%;}
+#skills .skills__box-2 .skills__box-2-graph img:nth-child(5){ width:95%;}
+/* work */
+/* 타이틀 텍스트 */
+#work .work__title{ line-height:60px;
+}
+/* 내용 박스 */
+#work .swiper-slide .work__box{ width:768px; height:auto; flex-direction:column-reverse; align-items:center; justify-content:center;
+}
+/* 박스 왼쪽 텍스트 */
+#work .swiper-slide .work__text{ margin:0; padding-bottom:0; padding-top:15px; width:600px; white-space:nowrap; align-self:center;
+}
+#work .work__text section:nth-child(1) .text-s{ margin-top:20px;
+}
+#work .work__text section:nth-child(1) { margin-bottom:0;
+}
+
+/* 웹사이트 보기 버튼 */
+#work .swiper-slide .work__text .button { margin-top:0;
+}
+/* 웹사이트 보기 버튼 (2개) */
+#work div.swiper-slide:not(.slide-1, .slide-4, .slide-5) .work__text .button div:nth-child(1){ margin-right:10px; margin-left:230px;
+}
+
+/* 스킬 그래프 */
+#work .swiper-slide .work__text section.skill{ display:none;
+}
+/* 박스 왼쪽 텍스트 끝 */
+/* 슬라이더 버튼 */
+#work .swiper-container .swiper-button-next{ right:0;
+}
+#work .swiper-container .swiper-button-prev { left:0;
+}
+  
+/* experience */
+#experience .exp__title{ line-height:60px;
+}
+#experience .wrap .border{ width:768px;
+} 
+#experience .swiper-wrapper:nth-child(1) .swiper-1 .img{ padding-top:165px;
+}
+
+/* contact */
+#contact .title{ line-height:60px;
+}
+}
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) and (min-width:480px) {
+html,body{ font-size:16px; transition: .3s;
+}
+.con { max-width:767x;
+}
+.wrap{ max-width: 480px;
+}
+#header{ top:0;
+}
+#header .menu-bar{ justify-content:center;
+}
+#header .menu-bar .flex-grow{ display:none; flex-grow:0;
+}
+#header .menu-bar .menu{ margin:0; justify-content:center;
+}
+#header .menu > li{ width:calc(100% / 4);
+}
+#header .menu > li:nth-child(4){ display:none;
+}
+#header .menu > li > a{ padding:0 25px;
+}
+/* main */
+#main .title{ font-size:7rem; line-height:100px;
+}
+#main .info{ margin-bottom:70px; font-size:1.4rem;
+}
+/* about */
+#about .about__title { left:0; bottom:7px; font-size:6rem; line-height:60px;
+}
+#about .wrap .about__box { width:500px; justify-content:center;
+}
+#about .wrap{ display: flex; flex-direction: column; justify-content:center; align-items:center;
+}
+
+#about .about__box .about__img { display: none;
+}
+
+/* possibility */
+#possibility .possibility__title{ left:0; bottom:7px; font-size:6rem; line-height:60px;
+}
+#possibility .wrap .possibility__box{ display:flex; padding:0; width:100%; align-items:center; justify-content:center;
+}
+#possibility .possibility__box .possibility__text{ display:flex; width:500px; padding:0; line-height:25px; flex-direction:column;
+}
+#possibility .possibility__text section:not(section:nth-child(3)){ margin-bottom:30px;
+}
+#possibility .possibility__text section dt{ white-space:nowrap;
+}
+#possibility .possibility__text section dd{ margin-top:25px; line-height:24px;
+}
+#possibility .possibility__box .possibility__img{ display:none;
+}  
+#possibility .possibility__box .possibility__img-1{ top: 50px; left: 74px; width:335px;
+}
+  
+/* skills */
+#skills{ position:relative;
+}
+#skills .skills__title{ left:0; bottom:7px; font-size:6rem; line-height:60px;
+}
+#skills .wrap{ position:relative; flex-direction:column;
+}
+#skills .wrap .skills__box-1{ display:flex; height:360px; 
+}
+#skills .skills__box-1 .skills__box-1-text{ margin-top:-5px;
+}
+#skills .skills__box-1-text p{ margin-bottom:16px; font-size:1rem;
+}
+#skills .wrap .skills__box-2{ display:none;
+}
+/* work */
+/* 타이틀 텍스트 */
+#work .work__title{ left:0; bottom:7px; font-size:6rem; line-height:60px;
+}
+/* 내용 박스 */
+#work .swiper-slide .work__box{ width:480px; height:auto; flex-direction:column-reverse; align-items:center; justify-content:center;
+}
+#work .slide-1 .work__img .page{position:absolute; top:13.75px; left:16.5px; width:450.5px; height:254.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-1.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-3 .work__img .page{position:absolute; top:13.75px; left:16.5px; width:450.5px; height:254.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-2.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-4 .work__img .page{position:absolute; top:13.75px; left:16.5px; width:450.5px; height:254.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-3.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-5 .work__img .page{position:absolute; top:13.75px; left:16.5px; width:450.5px; height:254.7px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-4.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-2 .work__img .page{position:absolute; top:20px; left:32.5px; width:198.5px; height:420.5px; border-radius:25px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-mobile-1.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+/* 박스 왼쪽 텍스트 */
+#work .swiper-slide .work__text{ margin:0; padding-top:15px; padding-bottom:0; white-space:nowrap; align-self:center;
+}
+#work .work__text section:nth-child(1) .text-s{ margin-top:10px;
+}
+#work .work__text section:nth-child(1) { margin-bottom:0;
+}
+#work .work__text section:nth-child(1) span{ line-height:20px;
+}
+/* 웹사이트 보기 버튼 */
+#work .swiper-slide .work__text .button { margin-top:0;
+}
+/* 웹사이트 보기 버튼 (2개) */
+#work div.swiper-slide:not(.slide-1, .slide-4, .slide-5) .work__text .button div:nth-child(1){ margin-right:10px; margin-left:230px;
+}
+/* 스킬 그래프 */
+#work .swiper-slide .work__text section.skill{ display:none;
+}
+/* 박스 왼쪽 텍스트 끝 */
+/* 슬라이더 버튼 */
+#work .swiper-container .swiper-button-next{ right:0;
+}
+#work .swiper-container .swiper-button-prev { left:0;
+}
+/* experience */
+#experience{ display:none;
+}   
+/* contact */
+#contact .title{ margin:0; margin-bottom:7px; font-size:6rem; line-height:60px;
+}
+
+}
+
+/* 모바일 (해상도 ~ 479px)*/
+@media all and (max-width:479px) {
+html,body{ font-size:14px; transition: .3s;
+}
+.con { max-width:479x;
+}
+.wrap{ max-width: 320px;
+}
+#header{ top:0;
+}
+#header .menu-bar{ justify-content:center;
+}
+#header .menu-bar .flex-grow{ display:none; flex-grow:0;
+}
+#header .menu-bar .menu{ margin:0; justify-content:center;
+}
+#header .menu > li{ width:calc(100% / 4);
+}
+#header .menu > li:nth-child(4){ display:none;
+}
+#header .menu > li > a{ padding:0 25px;
+}
+/* main */
+#main .title{ margin:0; font-size:6rem; line-height:100px;
+}
+#main .info{ margin-bottom:50px; margin-left:5px; font-size:1.4rem; letter-spacing:0;
+}
+/* about */
+#about .about__title { left:0; bottom:7px; font-size:5rem; line-height:60px;}
+  
+#about .wrap{ display: flex; flex-direction: column; justify-content:center; align-items:center;
+}
+#about .wrap .about__box { width:100%; justify-content:center;
+}
+#about .wrap .about__box .abaout__text-box{ width:100%;  white-space:wrap;
+}
+#about .about__box .about__img { display: none;
+}
+
+
+/* possibility */
+#possibility .possibility__title{ left:0; bottom:7px; font-size:5rem; line-height:60px;
+}
+#possibility .wrap .possibility__box{ display:flex; padding:0; width:100%; align-items:center; justify-content:center;
+}
+#possibility .possibility__box .possibility__text{ display:flex; padding:0; width:500px; line-height:25px; flex-direction:column; white-space:wrap;
+}
+#possibility .possibility__text section:not(section:nth-child(3)){ margin-bottom:30px;
+}
+#possibility .possibility__text section dt{ white-space:nowrap;
+}
+#possibility .possibility__text section dd{ margin-top:25px; line-height:24px;
+}
+#possibility .possibility__box .possibility__img{ display:none;
+}  
+#possibility .possibility__box .possibility__img-1{ top: 50px; left: 74px; width:335px;
+}
+  
+/* skills */
+#skills{ position:relative;
+}
+#skills .skills__title{ left:0; bottom:7px; font-size:5rem; line-height:60px;
+}
+#skills .wrap{ position:relative; flex-direction:column;
+}
+#skills .wrap .skills__box-1{ display:flex; height:360px; 
+}
+#skills .skills__box-1 .skills__box-1-text{ white-space:wrap; margin-top:-5px;
+}
+#skills .skills__box-1-text p{ margin-bottom:16px; font-size:1rem;
+}
+#skills .wrap .skills__box-2{ display:none;
+}
+/* work */
+/* 타이틀 텍스트 */
+#work .work__title{ left:0; bottom:7px; font-size:5rem; line-height:60px;
+}
+
+/* 내용 박스 */
+#work .swiper-slide .work__box{ width:320px; height:auto; flex-direction:column-reverse; align-items:center; justify-content:center;
+}
+#work .slide-1 .work__img .page{ position:absolute; top:9px; left:11.5px; width:300px; height:169px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-1.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-3 .work__img .page{ position:absolute; top:9px; left:11.5px; width:300px; height:169px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-2.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-4 .work__img .page{ position:absolute; top:9px; left:11.5px; width:300px; height:169px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-3.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-5 .work__img .page{ position:absolute; top:9px; left:11.5px; width:300px; height:169px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-web-4.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+#work .slide-2 .work__img .page{ position:absolute; top:13.5px; left:21.5px; width:133px; height:280.5px; border-radius:12px; overflow:hidden; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__sunshine/docs/img/work__img-mobile-1.png); background-size:cover; animation: position 14s infinite ease-in; animation-delay:.5s; animation-play-state:paused;
+}
+/* 박스 왼쪽 텍스트 */
+#work .swiper-slide .work__text{ width:100%; margin:0; padding-bottom:0; padding-top:15px; white-space:nowrap; align-self:center;}
+#work .work__text section:nth-child(1) .text-s{ margin-top:20px;
+}
+#work .work__text section:nth-child(1) { margin-bottom:0;
+}
+
+/* 웹사이트 보기 버튼 */
+#work .swiper-slide .work__text .button { margin-top:0;
+}
+/* 웹사이트 보기 버튼 (2개) */
+#work div.swiper-slide:not(.slide-1, .slide-4, .slide-5) .work__text .button div:nth-child(1){ margin-right:10px; margin-left:0;
+}
+
+/* 스킬 그래프 */
+#work .swiper-slide .work__text section.skill{ display:none;
+}
+/* 박스 왼쪽 텍스트 끝 */
+/* 슬라이더 버튼 */
+#work .swiper-container .swiper-button-next{ right:0;
+}
+#work .swiper-container .swiper-button-prev { left:0;
+}
+  
+/* experience */
+#experience{ display:none;
+}   
+   
+/* contact */
+#contact .title{ margin:0; margin-bottom:7px; font-size:5rem; line-height:60px;
+}
+#contact .info{ margin-left:7px; margin-bottom:50px; width:100%; justify-content:space-around;
+}
+#contact .info div:nth-child(2){ margin-left:10px; padding-top:10px;
+}
+#contact .info ul{ display:flex; padding-bottom:25px;
+}
+#contact .info ul:nth-child(3){ padding-bottom:0;
+}
+#contact .info ul .serif{ padding-right:50px; font-size:1.5rem;
+}
+#contact .info ul .sans{ padding-top:5px; font-size:1.1rem;  
+}
+#contact .info ul:nth-child(1) .sans{ padding-top:10px;
+}
+}
+
