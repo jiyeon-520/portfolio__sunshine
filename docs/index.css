@@ -401,7 +401,7 @@ html,body{ font-size:16px; transition: .3s;}
 }
 #possibility .possibility__text section dd{ margin-top:25px; line-height:24px;
 }
-#possibility .possibility__box .possibility__img{ display:flex; position:relative; margin:0 width:500px;
+#possibility .possibility__box .possibility__img{ display:flex; position:relative; margin:0; width:500px;
 }  
 #possibility .possibility__box .possibility__img-1{ top: 50px; left: 74px; width:335px;
 }
