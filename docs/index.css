@@ -138,7 +138,7 @@ ul,li,a{
 #about .about__title {
  position:absolute; left:50px; bottom:50px; margin:0; font-size:6.7rem; line-height:80px; 
 }
-#about .wrap .about__box { display: -webkit-box; display: -ms-flexbox; display: flex; width:1200px; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;
+#about .wrap .about__box { display: -webkit-box; display: -ms-flexbox; display: flex; padding:0 70px; width:1200px; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;
 }
 #about .about__box .about__img { display: -webkit-box; display: -ms-flexbox; display: flex; width: 500px; height: 643px; z-index:50; background-image:url(https://cdn.jsdelivr.net/gh/jiyeon-520/portfolio__brand/docs/img/about__img.png); 
 }
